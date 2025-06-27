@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Sport-FM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SPORT-FM</div>
+            <div class="nav-links">
+                <a href="#" class="active">Inicio</a>
+                <a href="/productos.html">Productos</a>
+                <a href="#">Ofertas</a>
+                <a href="#">Buscar</a>
+                <a href="#">Contacto</a>
+                <a href="login.html" id="perfil-link" class="perfil-link">Perfil</a>
+                <a href="#" class="cart-icon" title="Carrito">
+                    <!-- Icono carrito SVG color rojo -->
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;">
+                        <path d="M7 20c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm10 0c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zM7.334 16h9.359c.828 0 1.554-.522 1.841-1.303l3.09-7.787A1 1 0 0 0 20.7 6H6.215l-.94-2.36A1 1 0 0 0 4.333 3H2v2h1.333l3.6 9.06-1.35 2.44C5.21 16.37 5.97 17 6.834 17h12v-2h-11.5l.5-1z" fill="#e53935"/>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Barra de anuncio de ofertas -->
+    <div class="anuncio-barra">
+        Ofertas de invierno
+    </div>
+
+    <section class="hero">
+        <h1>Bienvenido a Sport-FM</h1>
+        <p>Tu tienda deportiva favorita con los mejores productos</p>
+        <a href="/products/index.html" class="btn">Ver Productos</a>
+    </section>
+
+    <section class="featured-products">
+        <h2>Productos Destacados</h2>
+        <div class="image-grid">
+            <div class="image-box">
+                <img src="/public/image/destacados/imange1.png" alt="Producto 1">
+            </div>
+            <div class="image-box">
+                <img src="/public/image/destacados/imange2.png" alt="Producto 2">
+            </div>
+            <div class="image-box">
+                <img src="/public/image/destacados/imange3.png" alt="Producto 3">
+            </div>
+            <div class="image-box">
+                <img src="/public/image/destacados/imange2.png" alt="Producto 4">
+            </div>
+            <div class="image-box">
+                <img src="/public/image/destacados/imange1.png" alt="Producto 5">
+            </div>
+            <div class="image-box">
+                <img src="/public/image/destacados/imange2.png" alt="Producto 6">
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrusel de productos en rebaja -->
+    <section class="sale-carousel">
+        <h2 style="color:#e53935;">Productos en Rebaja</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn prev">&#10094;</button>
+            <div class="carousel-track">
+                <div class="carousel-item">
+                    <img src="/public/image/destacados/imange1.png" alt="Rebaja 1">
+                    <p class="product-title">Zapatillas Running</p>
+                    <p class="old-price">$1200</p>
+                    <p class="sale-price">$899</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="/public/image/destacados/imange2.png" alt="Rebaja 2">
+                    <p class="product-title">Camiseta Deportiva</p>
+                    <p class="old-price">$600</p>
+                    <p class="sale-price">$399</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="/public/image/destacados/imange3.png" alt="Rebaja 3">
+                    <p class="product-title">Balón Oficial</p>
+                    <p class="old-price">$950</p>
+                    <p class="sale-price">$699</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="/public/image/destacados/imange2.png" alt="Rebaja 4">
+                    <p class="product-title">Guantes de Portero</p>
+                    <p class="old-price">$500</p>
+                    <p class="sale-price">$349</p>
+                </div>
+            </div>
+            <button class="carousel-btn next">&#10095;</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Sport-FM. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="main.js"></script>
+    <style>
+        .perfil-tooltip {
+            font-size: 1rem;
+            pointer-events: none;
+            min-width: 120px;
+            text-align: center;
+            opacity: 0.95;
+        }
+    </style>
+
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Aquí deberías obtener el nombre del usuario desde PHP si está logueado
+    // Por ejemplo, si usas sesiones:
+    // let usuario = "<?php echo isset($_SESSION['nombre']) ? $_SESSION['nombre'] : ''; ?>";
+    // Para este ejemplo, usamos localStorage:
+    let usuario = localStorage.getItem('usuario');
+
+    if (!usuario) {
+        // Usuario NO logueado: muestra invitación a registrarse
+        Swal.fire({
+            title: '¡Bienvenido a Sport-FM!',
+            text: 'Regístrate para recibir ofertas exclusivas y novedades.',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Registrarme',
+            cancelButtonText: 'Más tarde',
+            customClass: {
+                confirmButton: 'swal2-custom-btn',
+                cancelButton: 'swal2-custom-btn-cancel'
+            },
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirige a register.html
+                window.location.href = 'register.html';
+            }
+        });
+    } else {
+        // Usuario logueado: muestra mensaje de bienvenida
+        Swal.fire({
+            title: `¡Bienvenido, ${usuario}!`,
+            text: 'Nos alegra tenerte de vuelta.',
+            icon: 'success',
+            confirmButtonText: 'Continuar',
+            customClass: {
+                confirmButton: 'swal2-custom-btn'
+            },
+            buttonsStyling: false
+        });
+    }
+});
+</script>
+<style>
+.swal2-custom-btn {
+    background: #e53935 !important;
+    color: #fff !important;
+    border-radius: 20px !important;
+    padding: 10px 28px !important;
+    font-weight: bold !important;
+    border: none !important;
+    margin: 0 8px;
+    transition: background 0.2s;
+}
+.swal2-custom-btn:hover {
+    background: #b71c1c !important;
+}
+.swal2-custom-btn-cancel {
+    background: #fff !important;
+    color: #e53935 !important;
+    border-radius: 20px !important;
+    padding: 10px 28px !important;
+    font-weight: bold !important;
+    border: 2px solid #e53935 !important;
+    margin: 0 8px;
+    transition: background 0.2s, color 0.2s;
+}
+.swal2-custom-btn-cancel:hover {
+    background: #e53935 !important;
+    color: #fff !important;
+}
+</style>
+</body>
+</html>

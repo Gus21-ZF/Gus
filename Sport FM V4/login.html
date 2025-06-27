@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión - Sport-FM</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 3rem auto;
+            background: #000000;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+        .login-title {
+            color: #e53935;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .login-form label {
+            font-weight: bold;
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        .login-form button {
+            background: #e53935;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 28px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .login-form button:hover {
+            background: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SPORT-FM</div>
+            <div class="nav-links">
+                <a href="index.php">Inicio</a>
+                <a href="login.php" class="active">Iniciar Sesión</a>
+            </div>
+        </nav>
+    </header>
+    <div class="login-container">
+        <h1 class="login-title">Iniciar Sesión</h1>
+        <form class="login-form" action="login.php" method="post">
+            <label for="nombre">Nombre de usuario:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2023 Sport-FM. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
